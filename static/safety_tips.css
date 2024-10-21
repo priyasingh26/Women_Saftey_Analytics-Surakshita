@@ -1,0 +1,128 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a i {
+    font-size: 1.5rem;
+}
+
+/* Icons for each nav item */
+.fa-home, .fa-info-circle, .fa-exclamation-triangle, .fa-bell, .fa-user, .fa-shield-alt {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        z-index: 10;
+    }
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .nav-text {
+        display: none;
+    }
+
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li a i {
+        font-size: 1.5rem;
+    }
+}
+
+main {
+    padding: 20px;
+}
+
+.safety-tips {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+ul {
+    line-height: 1.8;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #333;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li i {
+        font-size: 24px;
+    }
+}

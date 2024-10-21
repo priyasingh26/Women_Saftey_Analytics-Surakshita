@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+nav ul li a i {
+    font-size: 1.5rem;
+}
+
+/* Icons for each nav item */
+.fa-home, .fa-info-circle, .fa-exclamation-triangle, .fa-bell, .fa-user, .fa-shield-alt {
+    font-size: 1.5rem;
+}
+
+main {
+    margin-top: 60px; /* Space for navbar */
+    padding: 20px;
+    flex: 1; /* Ensures main content takes up remaining space */
+}
+
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav {
+        bottom: 0;
+        top: auto; /* Ensure it's at the bottom on smaller screens */
+        z-index: 10;
+        padding: 5px 0;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 5px;
+    }
+
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li a i {
+        font-size: 1.5rem;
+    }
+
+    .map-container {
+        height: 40vh; /* Adjust map height for smaller screens */
+    }
+
+    .analytics, .important-contacts {
+        min-width: 100%; /* Full width on small screens */
+    }
+
+    .safe-areas {
+        margin-top: 10px;
+    }
+
+    #safe-areas-map {
+        height: 200px; /* Adjust safe areas map height for smaller screens */
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #333;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li i {
+        font-size: 24px;
+    }
+}

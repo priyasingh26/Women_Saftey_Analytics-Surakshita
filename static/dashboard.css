@@ -1,0 +1,377 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    z-index: 10;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li i {
+    font-size: 24px;
+}
+
+#dark-mode-toggle {
+    position: fixed; /* Fixes the button in place */
+    right: 10px; /* Distance from the right edge */
+    top: 10px; /* Distance from the top edge */
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1000; /* Ensures the button is on top of other elements */
+}
+
+#dark-mode-toggle:hover {
+    color: #ccc;
+}
+
+
+
+/* Main container */
+main {
+    padding: 10px;
+}
+
+/* Map container */
+.map-container {
+    height: 50vh; /* Map takes up half of the viewport height */
+    padding: 10px;
+}
+
+#map, #safe-areas-map {
+    height: 100%;
+    width: 100%;
+}
+
+#controls {
+    position: absolute;
+    /* top: -60px; */
+    /* right: 20px; */
+    bottom: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#controls div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#radiusSelectContainer {
+    /* position: relative; */
+    /* top: 80px;
+    right: 20px; */
+    z-index: 1000;
+  }
+  select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+.control-btn {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.control-btn:hover {
+    background-color: #f0f0f0;
+}
+.control-btn img {
+    width: 20px;
+    height: 20px;
+}
+.leaflet-routing-container {
+    z-index: 1000;
+}
+
+#getLocationBtn {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px;  /* Adjust as needed */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000; /* Ensure button is above the map */
+}
+#getLocationBtn:hover {
+    background-color: #f0f0f0;
+}
+#getLocationBtn img {
+    width: 30px; /* Size of the icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Dashboard content */
+.dashboard-content {
+    padding: 10px;
+}
+
+.flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.analytics, .important-contacts {
+    flex: 1;
+    min-width: 250px; /* Adjust as needed for mobile screens */
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 5px;
+}
+
+.analytics {
+    background-color: #f0f8ff; /* Light blue background for analytics */
+}
+
+.important-contacts {
+    background-color: #fff0f5; /* Light pink background for contacts */
+}
+
+.important-contacts button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.important-contacts button:hover {
+    background-color: #0056b3;
+}
+
+.safe-areas {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f5f5f5; /* Light grey background */
+    border-radius: 5px;
+}
+
+#safe-areas-map {
+    width: 100%;
+    height: 300px;
+    margin: 20px 0;
+}
+
+#emergency-alert {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#emergency-alert:hover {
+    background-color: darkred;
+}
+
+.real-time-alerts {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#alerts-container {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav {
+        bottom: 0;
+        top: auto; /* Ensure it's at the bottom on smaller screens */
+        z-index: 10;
+        padding: 5px 0;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 5px;
+    }
+
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li a i {
+        font-size: 1.5rem;
+    }
+    .nav-text {
+        display: none;
+    }
+    .map-container {
+        height: 40vh; /* Adjust map height for smaller screens */
+    }
+
+    .analytics, .important-contacts {
+        min-width: 100%; /* Full width on small screens */
+    }
+
+    .safe-areas {
+        margin-top: 10px;
+    }
+
+    #safe-areas-map {
+        height: 200px; /* Adjust safe areas map height for smaller screens */
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #333;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li i {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    nav {
+        z-index: 10;
+    }
+    #emergency-alert {
+        font-size: 16px; /* Adjust font size for very small screens */
+        padding: 8px;
+    }
+
+    .important-contacts button {
+        font-size: 14px; /* Adjust font size for buttons on small screens */
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+@keyframes blink {
+    0% { border-color: red; }
+    50% { border-color: transparent; }
+    100% { border-color: red; }
+}
+
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 5px solid red;
+    animation: blink 1s infinite;
+    z-index: 10000; /* Keep it on top */
+    display: none;  /* Initially hidden */
+}
+
+body.dark-mode nav {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .analytics {
+    background-color: #1e2a38;
+}
+
+body.dark-mode .important-contacts {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .safe-areas {
+    background-color: #1e2a38;
+}
+
+body.dark-mode #emergency-alert {
+    background-color: #d32f2f;
+}
+
+body.dark-mode #emergency-alert:hover {
+    background-color: #c62828;
+}

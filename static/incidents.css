@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+nav ul li a i {
+    font-size: 1.5rem;
+}
+
+/* Icons for each nav item */
+.fa-home, .fa-info-circle, .fa-exclamation-triangle, .fa-bell, .fa-user, .fa-shield-alt {
+    font-size: 1.5rem;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 15px;
+    width: 220px;
+    position: fixed;
+    top: 60px; /* Below the nav bar */
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ddd;
+}
+
+.sidebar-toggle {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    position: fixed;
+    top: 60px; /* Below the nav bar */
+    left: 10px;
+    z-index: 1001;
+    display: none;
+}
+
+main {
+    margin-left: 240px; /* Space for sidebar */
+    padding: 20px;
+    width: calc(100% - 240px); /* Full width minus sidebar */
+    margin-top: 60px; /* Space for navbar */
+    flex: 1;
+}
+
+.incident-frame {
+    display: none; /* Initially hidden */
+    width: 100%;
+    height: 80vh; /* Adjust as needed */
+    margin-bottom: 20px;
+}
+
+.incident-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        transform: translateX(-100%);
+        top: 60px; /* Keep below the navbar */
+    }
+    nav {
+        z-index: 10;
+    }
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 5px;
+    }
+
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li a i {
+        font-size: 1.5rem;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .incident-frame {
+        height: 60vh;
+    }
+}
+
+/* Mobile specific styles */
+@media (max-width: 600px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #333;
+        top: auto; /* Ensure it's at the bottom on smaller screens */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li i {
+        font-size: 24px;
+    }
+
+    .sidebar {
+        top: 60px; /* Keep below the navbar */
+        bottom: auto;
+    }
+}

@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    z-index: 10;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li i {
+    font-size: 24px;
+}
+
+nav ul li a i {
+    font-size: 1.5rem;
+}
+
+/* Icons for each nav item */
+.fa-home, .fa-info-circle, .fa-exclamation-triangle, .fa-bell, .fa-user, .fa-shield-alt {
+    font-size: 1.5rem;
+}
+
+main {
+    padding: 80px 10px 20px; /* Top padding adjusted for fixed nav */
+}
+
+.profile {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-image {
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    transition: border-color 0.3s;
+}
+
+.profile-image img:hover {
+    border-color: #007bff;
+}
+
+.profile-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.profile-info p {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.profile-actions {
+    margin-top: 20px;
+}
+
+.profile-actions button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-actions button:hover {
+    background-color: #0056b3;
+}
+
+.profile-actions button:focus {
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    nav {
+        z-index: 10;
+    }
+    nav ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul li {
+        flex: 1;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 5px;
+    }
+
+    nav ul li a span {
+        display: none; /* Hide text */
+    }
+
+    nav ul li a i {
+        font-size: 1.5rem;
+    }
+
+    .nav-text {
+        display: none;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .profile-actions button {
+        font-size: 14px;
+        padding: 10px;
+    }
+    nav {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        background-color: #333;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li i {
+        font-size: 24px;
+    }
+}
+
+/* Styling for file input and upload button */
+.profile-image {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#profile-image-upload {
+    display: none;
+}
+
+label[for="profile-image-upload"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+label[for="profile-image-upload"]:hover {
+    background-color: #0056b3;
+}
+
+/* Upload button */
+button[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
