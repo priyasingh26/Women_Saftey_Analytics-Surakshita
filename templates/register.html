@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: rgb(9, 9, 121);
+        background: linear-gradient(
+          30deg,
+          rgba(9, 9, 121, 1) 0%,
+          rgba(2, 0, 36, 1) 29%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 20px;
+        padding: 20px;
+        background: #ffffff5a;
+        backdrop-filter: blur(20px);
+      }
+      h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style: none;
+        margin-bottom: 20px;
+        padding: 0;
+      }
+      li {
+        margin: 10px 0;
+      }
+      .error {
+        color: red;
+      }
+      .success {
+        color: green;
+      }
+      .default {
+        color: black;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      div {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      label {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.4rem;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .register_button {
+        color: #fff;
+        background: red;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        transition: 0.3s;
+      }
+      .register_button:hover {
+        background: #fff;
+        color: #000;
+        cursor: pointer;
+      }
+      .password, .username, .email, .phone_number {
+        padding: 10px 15px;
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        width: 100%;
+      }
+      p {
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 20px;
+      }
+      a {
+        color: #000;
+        text-decoration: none;
+        background: lightblue;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 600px) {
+        .container {
+          width: 95%;
+          padding: 10px;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        .register_button {
+          font-size: 1rem;
+        }
+        label {
+          font-size: 1.2rem;
+        }
+        .password, .username, .email, .phone_number {
+          padding: 8px 12px;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h1>User Registration</h1>
+      {% with messages = get_flashed_messages() %} 
+        {% if messages %}
+          <ul>
+            {% for message in messages %}
+              <li class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else %}default{% endif %}">
+                {{ message }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %} 
+      {% endwith %}
+      <form method="post" action="{{ url_for('register') }}">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" name="username" class="username" required />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" name="password" class="password" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" name="email" class="email" required />
+        </div>
+        <div>
+          <label for="phone_number">Phone Number:</label>
+          <input type="text" name="phone_number" class="phone_number" required />
+        </div>
+        <input type="submit" class="register_button" value="Register" />
+      </form>
+      <p>
+        Already have an account?
+        <a href="{{ url_for('login') }}">Log in</a>.
+      </p>
+    </div>
+</body>
+</html>

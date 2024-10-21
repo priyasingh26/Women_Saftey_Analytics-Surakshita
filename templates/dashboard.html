@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/dashboard.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  </head>
+  <body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+            <li><a href="{{ url_for('complaints') }}"><i class="fas fa-exclamation-triangle"></i><span>Complaints</span></a></li>
+            <li><a href="{{ url_for('recent_incidents') }}"><i class="fas fa-bell"></i><span>Recent Incidents</span></a></li>
+            <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+            <li><a href="{{ url_for('safety_tips') }}"><i class="fas fa-shield-alt"></i><span>Safety Tips</span></a></li>
+        </ul>
+      <button id="dark-mode-toggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+
+    <main>
+      <section class="map-container">
+        <!-- Map for main display -->
+        <div id="map">
+          <div id="controls">
+            <div>
+              <button class="control-btn" id="toggleHospitals">
+                <img src="../static/hospital.png" alt="" />
+              </button>
+              <button class="control-btn" id="togglePolice">
+                <img src="../static/policeman.png" alt="" />
+              </button>
+              <button class="control-btn" id="toggleCrowdedAreas">
+                <img src="../static/people-group-solid.svg" alt="" />
+              </button>
+              <div id="radiusSelectContainer">
+                <label for="radiusSelect">Range:</label>
+                <select id="radiusSelect">
+                  <option value="500">500m</option>
+                  <option value="1000">1 km</option>
+                  <option value="2000">2 km</option>
+                  <option value="5000">5 km</option>
+                  <option value="10000">10 km</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button class="control-btn" id="getLocationBtn">
+            <img
+              src="./static/location-crosshairs-solid.svg"
+              alt="My Location"
+              width="30"
+            />
+          </button>
+        </div>
+      </section>
+      <div id="alert-overlay" class="alert-overlay"></div>
+      <audio
+        id="alert-sound"
+        src="../static/alert-beep.mp3"
+        preload="auto"
+      ></audio>
+      <button id="emergency-alert" class="emergency-alert">
+        Emergency Alert
+      </button>
+
+      <section class="dashboard-content">
+        <div class="flex-grid">
+          <div class="analytics">
+            <h2>Analytical Data</h2>
+            <p>Number of Male Users Nearby: <span id="male-count">0</span></p>
+            <p>
+              Number of Female Users Nearby: <span id="female-count">0</span>
+            </p>
+            <p>Ratio (Male/Female): <span id="ratio">N/A</span></p>
+            <p>Recent Incidents: <span id="incidents">N/A</span></p>
+          </div>
+
+          <div class="important-contacts">
+            <h2>Important Contacts</h2>
+            <button onclick="callContact('+1234567890')">
+              Call Police Station
+            </button>
+            <button onclick="callContact('+0987654321')">Call Hospital</button>
+            <button onclick="callContact('+1122334455')">
+              Call Emergency Services
+            </button>
+          </div>
+        </div>
+
+        <div class="safe-areas">
+          <h2>Safe Areas</h2>
+          <div id="safe-areas-map"></div>
+        </div>
+
+        <section class="real-time-alerts">
+          <h2>Real-Time Alerts</h2>
+          <div id="alerts-container"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="../static/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../static/complaints.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+            <li><a href="{{ url_for('complaints') }}"><i class="fas fa-exclamation-triangle"></i><span>Complaints</span></a></li>
+            <li><a href="{{ url_for('recent_incidents') }}"><i class="fas fa-bell"></i><span>Recent Incidents</span></a></li>
+            <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+            <li><a href="{{ url_for('safety_tips') }}"><i class="fas fa-shield-alt"></i><span>Safety Tips</span></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="comments-section">
+            <h2>Complaints</h2>
+            <form method="POST" action="/submit_complaint">
+                <textarea name="comment" placeholder="Enter your complaint here..." required></textarea>
+                <select name="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option value="Service">Service</option>
+                    <option value="Safety">Safety</option>
+                    <option value="Technical">Technical Issues</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+
+            <div class="comments-list">
+                <!-- Comments will be dynamically loaded here -->
+                {% for complaint in complaints %}
+                <div class="comment">
+                    <p>{{ complaint.text }}</p>
+                    <small>Submitted by: {{ complaint.username }} on {{ complaint.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                    <button class="like-btn">Like</button>
+                    <button class="report-btn">Report</button>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination (if needed) -->
+            <div class="pagination">
+                {% if pagination.has_prev %}
+                    <a href="{{ url_for('complaints', page=pagination.prev_num) }}">Previous</a>
+                {% endif %}
+                {% if pagination.has_next %}
+                    <a href="{{ url_for('complaints', page=pagination.next_num) }}">Next</a>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

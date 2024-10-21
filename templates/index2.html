@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login form</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <svg style="position:absolute;bottom:0;" id="wave" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 380" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(140.767, 81.582, 196.174, 1)" offset="0%"></stop><stop stop-color="rgba(173.431, 126.806, 216.665, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,0L80,50.7C160,101,320,203,480,253.3C640,304,800,304,960,278.7C1120,253,1280,203,1440,164.7C1600,127,1760,101,1920,88.7C2080,76,2240,76,2400,120.3C2560,165,2720,253,2880,253.3C3040,253,3200,165,3360,120.3C3520,76,3680,76,3840,69.7C4000,63,4160,51,4320,57C4480,63,4640,89,4800,95C4960,101,5120,89,5280,120.3C5440,152,5600,228,5760,228C5920,228,6080,152,6240,107.7C6400,63,6560,51,6720,76C6880,101,7040,165,7200,171C7360,177,7520,127,7680,95C7840,63,8000,51,8160,82.3C8320,114,8480,190,8640,234.3C8800,279,8960,291,9120,266C9280,241,9440,177,9600,177.3C9760,177,9920,241,10080,234.3C10240,228,10400,152,10560,152C10720,152,10880,228,11040,272.3C11200,317,11360,329,11440,335.7L11520,342L11520,380L11440,380C11360,380,11200,380,11040,380C10880,380,10720,380,10560,380C10400,380,10240,380,10080,380C9920,380,9760,380,9600,380C9440,380,9280,380,9120,380C8960,380,8800,380,8640,380C8480,380,8320,380,8160,380C8000,380,7840,380,7680,380C7520,380,7360,380,7200,380C7040,380,6880,380,6720,380C6560,380,6400,380,6240,380C6080,380,5920,380,5760,380C5600,380,5440,380,5280,380C5120,380,4960,380,4800,380C4640,380,4480,380,4320,380C4160,380,4000,380,3840,380C3680,380,3520,380,3360,380C3200,380,3040,380,2880,380C2720,380,2560,380,2400,380C2240,380,2080,380,1920,380C1760,380,1600,380,1440,380C1280,380,1120,380,960,380C800,380,640,380,480,380C320,380,160,380,80,380L0,380Z"></path></svg>
+    <div style="position: absolute; top: 20px">
+      <p>{% with messages = get_flashed_messages() %} {% if messages %}</p>
+      <ul>
+        {% for message in messages %}
+        <li
+          class="{% if 'error' in message %}error{% elif 'success' in message %}success{% else %}default{% endif %}"
+        >
+          {{ message }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+    </div>
+    <form
+      id="login-form"
+      method="post"
+      class="login-form"
+      action="{{ url_for('login') }}"
+    >
+      <h1 class="a11y-hidden">Login Form</h1>
+      <div>
+        <label class="label-email">
+          <input
+            type="text"
+            class="text username"
+            name="username"
+            placeholder="Username"
+            tabindex="1"
+            required
+          />
+          <span class="required">Username</span>
+        </label>
+      </div>
+      <input
+        type="checkbox"
+        name="password"
+        class="show-password a11y-hidden"
+        id="show-password"
+        tabindex="3"
+      />
+      <label class="label-show-password" for="show-password">
+        <span>Show Password</span>
+      </label>
+      <div>
+        <label class="label-password">
+          <input
+            type="text"
+            class="text password"
+            name="password"
+            placeholder="Password"
+            tabindex="2"
+            required
+          />
+          <span class="required">Password</span>
+        </label>
+      </div>
+      <input type="submit" value="Log In" />
+      <div class="email">
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <figure aria-hidden="true">
+        <div class="person-body"></div>
+        <div class="neck skin"></div>
+        <div class="head skin">
+          <div class="eyes"></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="hair"></div>
+        <div class="ears"></div>
+        <div class="shirt-1"></div>
+        <div class="shirt-2"></div>
+      </figure>
+      <p>
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Register</a>.
+      </p>
+    </form>
+  </body>
+</html>

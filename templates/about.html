@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../static/about.css" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}"><i class="fas fa-home"></i><span>Home</span></a></li>
+            <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+            <li><a href="{{ url_for('complaints') }}"><i class="fas fa-exclamation-triangle"></i><span>Complaints</span></a></li>
+            <li><a href="{{ url_for('recent_incidents') }}"><i class="fas fa-bell"></i><span>Recent Incidents</span></a></li>
+            <li><a href="{{ url_for('profile') }}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+            <li><a href="{{ url_for('safety_tips') }}"><i class="fas fa-shield-alt"></i><span>Safety Tips</span></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="about">
+            <h1>About Us</h1>
+            <p>
+                Welcome to <strong>Abhaya</strong>, your go-to platform for personal safety and security. Our mission is to provide users with a comprehensive suite of tools and resources to help them stay safe and informed in their daily lives.
+            </p>
+
+            <h2>Features</h2>
+            <ul>
+                <li><strong>User Authentication:</strong> Secure login and registration system with session management.</li>
+                <li><strong>Aadhaar Card Verification:</strong> Upload and verify Aadhaar card details for registration and authentication.</li>
+                <li><strong>Real-Time Location Tracking:</strong> Live updates of user locations for accurate location-based features.</li>
+                <li><strong>Map Integration:</strong> Interactive maps with real-time location updates, recent incidents, and safe areas.</li>
+                <li><strong>Analytical Dashboard:</strong> Displays user analytics, including gender distribution and recent incidents.</li>
+                <li><strong>Emergency Alerts:</strong> A button for sending emergency alerts quickly.</li>
+                <li><strong>Safe Areas Identification:</strong> Map view of safe zones for users in critical situations.</li>
+                <li><strong>Complaints Submission:</strong> Allows users to submit and view complaints.</li>
+                <li><strong>Recent Incidents Reporting:</strong> Detailed reports on recent incidents through embedded iframes.</li>
+                <li><strong>Safety Tips:</strong> Provides safety tips and emergency guidelines.</li>
+                <li><strong>Profile Management:</strong> Manage and update user profiles, including profile pictures.</li>
+                <li><strong>Dark Mode:</strong> Toggle between light and dark modes for better visibility in different lighting conditions.</li>
+            </ul>
+
+            <h2>Our Team</h2>
+            <p>Meet our dedicated team who worked tirelessly to bring you this platform:</p>
+            <ul>
+                <li><strong>Ronak Parmar</strong>: Team Leader - [Brief description or bio]</li>
+                <li><strong>Sagar Mourya</strong>: Developer - [Brief description or bio]</li>
+                <li><strong>Priya Singh</strong>: AI Developer and Researcher - [Brief description or bio]</li>
+                <li><strong>Bidisha Biswas</strong>: AI Developer and Researcher - [Brief description or bio]</li>
+                <li><strong>Ayush Singh</strong>: Graphic Designer - [Brief description or bio]</li>
+                <li><strong>Shivam Kumar</strong>: Developer - [Brief description or bio]</li>
+                <!-- Add more team members as needed -->
+            </ul>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to <a href="mailto:ronakparmar2428@gmail.com">email us</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Abhaya. All rights reserved.</p>
+    </footer>
+
+    <script src="../static/about.js"></script>
+</body>
+</html>
