@@ -1,5 +1,5 @@
 # Women Safety Analytics 🚨
-
+![Cover Page](thumbnail.png)
 ## Project Overview
 **Women Safety Analytics** is a real-time threat detection platform aimed at enhancing the safety of women in public spaces. This platform leverages **Artificial Intelligence (AI)**, **Machine Learning (ML)**, and **IoT** technologies to monitor, detect, and alert users about potential threats. Additionally, it empowers communities to report unsafe areas and assists law enforcement in responding to incidents more quickly.
 
